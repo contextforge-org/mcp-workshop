@@ -78,8 +78,8 @@ fastmcp run server.py --python 3.11 --with httpx
 The CLI auto-detects the FastMCP instance (`mcp`, `server`, `app`). Add `--with` to install extra packages on the fly.
 
 ???+ tip "Auto-reload during development"
-    Run `fastmcp run server.py --transport http --watch` to restart the server when files change (FastMCP ≥2.10). Great for iterating on tools quickly.
-
+    Run `watchmedo auto-restart --pattern="*.py" --recursive -- fastmcp run server.py --transport http` OR `nodemon --exec "fastmcp run server.py --transport http` OR `ls *.py | entr -r fastmcp run server.py --transport http` to restart the server when files change. Great for iterating on tools quickly. 
+    **Note**: Installing additional packages like `entr`, `watchmedo` or `nodemon` may be required.
 ### Option B — Python entrypoint
 
 ```bash
